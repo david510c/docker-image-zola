@@ -1,8 +1,8 @@
 FROM rust:1-buster AS builder
-ARG version="0.16.1"
+ARG version="0.17.2"
 RUN apt-get update
-RUN apt-get install -y python-pip curl tar python-setuptools rsync binutils
-RUN pip install dockerize
+RUN apt-get install -y python-is-python3 python3-pip curl tar python-setuptools rsync binutils
+RUN pip install dockerize python-slugify rtoml
 RUN mkdir -p /workdir
 WORKDIR /workdir
 RUN curl -L https://github.com/getzola/zola/archive/refs/tags/v${version}.tar.gz | tar xz
